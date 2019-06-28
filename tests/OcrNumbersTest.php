@@ -31,4 +31,108 @@ EOT;
 EOT;
         $this->assertEquals($two,$result);
     }
+
+    public function test_three(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(3);
+        $three = <<<EOT
+_
+_|
+_|
+
+EOT;
+        $this->assertEquals($three,$result);
+    }
+
+    public function test_four(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(4);
+        $four = <<<EOT
+   
+|_|
+  |
+   
+EOT;
+        $this->assertEquals($four,$result);
+    }
+
+    public function test_five(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(5);
+        $five = <<<EOT
+ _ 
+|_ 
+ _|
+   
+EOT;
+        $this->assertEquals($five,$result);
+    }
+
+    public function test_six(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(6);
+        $six = <<<EOT
+ _ 
+|_ 
+|_|
+   
+EOT;
+        $this->assertEquals($six,$result);
+    }
+
+    public function test_seven(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(7);
+        $seven = <<<EOT
+ _ 
+  |
+  |
+   
+EOT;
+        $this->assertEquals($seven,$result);
+    }
+
+    public function test_eight(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(8);
+        $eight = <<<EOT
+ _
+|_|
+|_|
+   
+EOT;
+        $this->assertEquals($eight,$result);
+    }
+
+    public function test_nine(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(9);
+        $nine = <<<EOT
+ _
+|_|
+ _|
+   
+EOT;
+        $this->assertEquals($nine,$result);
+    }
+
+    public function test_zero(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(0);
+        $zero = <<<EOT
+ _
+| |
+|_|
+   
+EOT;
+        $this->assertEquals($zero,$result);
+    }
 }
