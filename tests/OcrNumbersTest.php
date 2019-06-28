@@ -102,7 +102,7 @@ EOT;
         $ocrNumbers = new OcrNumbers();
         $result = $ocrNumbers->to(8);
         $eight = <<<EOT
- _
+ _ 
 |_|
 |_|
    
@@ -115,7 +115,7 @@ EOT;
         $ocrNumbers = new OcrNumbers();
         $result = $ocrNumbers->to(9);
         $nine = <<<EOT
- _
+ _ 
 |_|
  _|
    
