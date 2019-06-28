@@ -7,21 +7,21 @@ class OcrNumbers
     private $numbers = [
         1=><<<EOT
    
-   |
-   |
+  |
+  |
    
 EOT,
         2=><<<EOT
  _ 
  _|
 |_ 
-
+   
 EOT,
         3=><<<EOT
-_
-_|
-_|
-
+ _ 
+ _|
+ _|
+   
 EOT,
         4=><<<EOT
    
@@ -60,7 +60,7 @@ EOT,
    
 EOT,
         0=><<<EOT
- _
+ _ 
 | |
 |_|
    
@@ -74,6 +74,21 @@ EOT
 
     public function to(int $number) : string
     {
-        return $this->_getNumber($number);
+        $numberString = (string) $number;
+        $numberParts = str_split($number, 1);
+        $stringLength = strlen($numberString);
+        $output = [0=>[],1=>[],2=>[],3=>[]];
+        foreach($numberParts as $number ){
+            foreach(explode(PHP_EOL, $this->_getNumber($number)) as $index=>$part) {
+                $output[$index][] = $part;
+            }
+        }
+
+        $outputString = "";
+        foreach($output as $index=>$part) {
+            $outputString .= implode("", $output[$index]) . PHP_EOL;
+        }
+        $outputString = rtrim($outputString,PHP_EOL);
+        return $outputString;
     }
 }

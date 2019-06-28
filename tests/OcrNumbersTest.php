@@ -12,8 +12,8 @@ final class OcrNumbersTest extends TestCase
         $result = $ocrNumbers->to(1);
         $one = <<<EOT
    
-   |
-   |
+  |
+  |
    
 EOT;
         $this->assertEquals($one,$result);
@@ -27,7 +27,7 @@ EOT;
  _ 
  _|
 |_ 
-
+   
 EOT;
         $this->assertEquals($two,$result);
     }
@@ -37,10 +37,10 @@ EOT;
         $ocrNumbers = new OcrNumbers();
         $result = $ocrNumbers->to(3);
         $three = <<<EOT
-_
-_|
-_|
-
+ _ 
+ _|
+ _|
+   
 EOT;
         $this->assertEquals($three,$result);
     }
@@ -128,11 +128,38 @@ EOT;
         $ocrNumbers = new OcrNumbers();
         $result = $ocrNumbers->to(0);
         $zero = <<<EOT
- _
+ _ 
 | |
 |_|
    
 EOT;
         $this->assertEquals($zero,$result);
+    }
+
+    public function test_one_zero(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(10);
+        $compare = <<<EOT
+    _ 
+  || |
+  ||_|
+      
+EOT;
+        $this->assertEquals($compare,$result);
+    }
+
+    public function test_one_zero_two(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $result = $ocrNumbers->to(102);
+        $compare = <<<EOT
+    _  _ 
+  || | _|
+  ||_||_ 
+         
+EOT;
+
+        $this->assertEquals($compare,$result);
     }
 }
