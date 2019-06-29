@@ -6,7 +6,7 @@
 
 Run:
 
-`php src/examples/orc.php 1234567890`
+`php src/examples/to.php 1234567890`
 
 Output:
 
@@ -17,3 +17,23 @@ Output:
                               
 ```
 
+## From OCR
+
+Create the following file (`/tmp/test.txt`):
+
+```
+    _  _     _  _  _  _ 
+  | _| _||_||_   ||_||_|
+  ||_  _|  | _|  ||_| _|
+                        
+```
+
+Or with:
+
+`php src/examples/to.php 123456789 > /tmp/test.txt`
+
+`php src/examples/from.php /tmp/test.txt`
+
+Output: 
+
+`123456789`

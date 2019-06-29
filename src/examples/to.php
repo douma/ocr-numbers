@@ -2,5 +2,5 @@
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 
-$command = new \OcrNumbers\Command(new \OcrNumbers\OcrNumbers());
+$command = new \OcrNumbers\CommandTo(new \OcrNumbers\OcrNumbers());
 $command->run();
