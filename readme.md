@@ -32,6 +32,8 @@ Or with:
 
 `php src/examples/to.php 123456789 > /tmp/test.txt`
 
+Run: 
+
 `php src/examples/from.php /tmp/test.txt`
 
 Output: 
