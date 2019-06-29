@@ -91,4 +91,13 @@ EOT
         $outputString = rtrim($outputString,PHP_EOL);
         return $outputString;
     }
+
+    public function from(string $number)
+    {
+        foreach($this->numbers as $index=>$numberLoop) {
+            if($numberLoop == $number) {
+                return $index;
+            }
+        }
+    }
 }

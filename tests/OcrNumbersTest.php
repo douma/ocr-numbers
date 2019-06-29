@@ -162,4 +162,17 @@ EOT;
 
         $this->assertEquals($compare,$result);
     }
+
+    public function test_from_one()
+    {
+        $ocrNumbers = new OcrNumbers();
+        $one = <<<EOT
+   
+  |
+  |
+   
+EOT;
+        $result = $ocrNumbers->from($one);
+        $this->assertEquals(1, $result);
+    }
 }
