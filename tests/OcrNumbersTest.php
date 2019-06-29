@@ -9,7 +9,7 @@ final class OcrNumbersTest extends TestCase
     public function test_one(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(1);
+        $result = $ocrNumbers->to("1");
         $one = <<<EOT
    
   |
@@ -22,7 +22,7 @@ EOT;
     public function test_two(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(2);
+        $result = $ocrNumbers->to("2");
         $two = <<<EOT
  _ 
  _|
@@ -35,7 +35,7 @@ EOT;
     public function test_three(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(3);
+        $result = $ocrNumbers->to("3");
         $three = <<<EOT
  _ 
  _|
@@ -48,7 +48,7 @@ EOT;
     public function test_four(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(4);
+        $result = $ocrNumbers->to("4");
         $four = <<<EOT
    
 |_|
@@ -61,7 +61,7 @@ EOT;
     public function test_five(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(5);
+        $result = $ocrNumbers->to("5");
         $five = <<<EOT
  _ 
 |_ 
@@ -74,7 +74,7 @@ EOT;
     public function test_six(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(6);
+        $result = $ocrNumbers->to("6");
         $six = <<<EOT
  _ 
 |_ 
@@ -87,7 +87,7 @@ EOT;
     public function test_seven(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(7);
+        $result = $ocrNumbers->to("7");
         $seven = <<<EOT
  _ 
   |
@@ -100,7 +100,7 @@ EOT;
     public function test_eight(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(8);
+        $result = $ocrNumbers->to("8");
         $eight = <<<EOT
  _ 
 |_|
@@ -113,7 +113,7 @@ EOT;
     public function test_nine(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(9);
+        $result = $ocrNumbers->to("9");
         $nine = <<<EOT
  _ 
 |_|
@@ -126,7 +126,7 @@ EOT;
     public function test_zero(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(0);
+        $result = $ocrNumbers->to("0");
         $zero = <<<EOT
  _ 
 | |
@@ -139,7 +139,7 @@ EOT;
     public function test_one_zero(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(10);
+        $result = $ocrNumbers->to("10");
         $compare = <<<EOT
     _ 
   || |
@@ -152,7 +152,7 @@ EOT;
     public function test_one_zero_two(): void
     {
         $ocrNumbers = new OcrNumbers();
-        $result = $ocrNumbers->to(102);
+        $result = $ocrNumbers->to("102");
         $compare = <<<EOT
     _  _ 
   || | _|

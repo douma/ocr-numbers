@@ -67,12 +67,12 @@ EOT,
 EOT
     ];
 
-    private function _getNumber(int $number) : string
+    private function _getNumber(string $number) : string
     {
         return $this->numbers[$number];
     }
 
-    public function to(int $number) : string
+    public function to(string $number) : string
     {
         $numberString = (string) $number;
         $numberParts = str_split($number, 1);
