@@ -92,12 +92,62 @@ EOT
         return $outputString;
     }
 
+    private function _splitInput(string $input) : array
+    {
+        $inputParts = explode(PHP_EOL, $input);
+        foreach($inputParts as $index=>$part) {
+            $inputParts[$index] = str_split($part, 1);
+        }
+        return $inputParts;
+    }
+
+    private function _removeFirstChar(array $splitInput) : array
+    {
+        for($x=0;$x<3;$x++) {
+            unset($splitInput[0][$x]);
+            unset($splitInput[1][$x]);
+            unset($splitInput[2][$x]);
+            unset($splitInput[3][$x]);
+        }
+        $splitInput[0] = array_values($splitInput[0]);
+        $splitInput[1] = array_values($splitInput[1]);
+        $splitInput[2] = array_values($splitInput[2]);
+        $splitInput[3] = array_values($splitInput[3]);
+        return $splitInput;
+    }
+
+    private function _matchFirstNumber(int $numberLoopIndex, string $numberLoop, array $splitInput) : bool
+    {
+        $numberLoopSplit = $this->_splitInput($numberLoop);
+
+        try {
+            $inputMatch = [
+                [$splitInput[0][0], $splitInput[0][1], $splitInput[0][2]],
+                [$splitInput[1][0], $splitInput[1][1], $splitInput[1][2]],
+                [$splitInput[2][0], $splitInput[2][1], $splitInput[2][2]],
+                [$splitInput[3][0], $splitInput[3][1], $splitInput[3][2]],
+            ];
+        } catch(\Exception $e) {
+            return false;
+        }
+        return $inputMatch == $numberLoopSplit;
+    }
+
     public function from(string $number)
     {
-        foreach($this->numbers as $index=>$numberLoop) {
-            if($numberLoop == $number) {
-                return $index;
+        $splitInput = $this->_splitInput($number);
+        $output = "";
+        $numberLength = count($splitInput[0]) / 3;
+
+        for($x=0;$x<$numberLength;$x++) {
+            foreach($this->numbers as $index=>$numberLoop) {
+                if($this->_matchFirstNumber($index, $numberLoop, $splitInput)) {
+                    $output .= $index;
+                    break;
+                }
             }
+            $splitInput = $this->_removeFirstChar($splitInput);
         }
+        return $output;
     }
 }

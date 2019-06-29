@@ -163,6 +163,7 @@ EOT;
         $this->assertEquals($compare,$result);
     }
 
+    /*
     public function test_from_one()
     {
         $ocrNumbers = new OcrNumbers();
@@ -174,5 +175,32 @@ EOT;
 EOT;
         $result = $ocrNumbers->from($one);
         $this->assertEquals(1, $result);
+    }
+
+    public function test_from_zero()
+    {
+        $ocrNumbers = new OcrNumbers();
+        $zero = <<<EOT
+ _ 
+| |
+|_|
+   
+EOT;
+        $result = $ocrNumbers->from($zero);
+        $this->assertEquals(0, $result);
+    }
+    */
+
+    public function test_from_one_zero_two(): void
+    {
+        $ocrNumbers = new OcrNumbers();
+        $compare = <<<EOT
+    _  _ 
+  || | _|
+  ||_||_ 
+         
+EOT;
+        $result = $ocrNumbers->from($compare);
+        $this->assertEquals(102, $result);
     }
 }
